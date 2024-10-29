@@ -83,8 +83,8 @@ def find_top_10(file_name):
         id = record['id']
         rating = record['rating']
         distance = record['distance_from_me']
-        score = (rating * 10 - distance * 0.50 + math.sin(id) * 2) * 100 + 0.50
-        record['score'] = round(score/100.00, 2)
+        score = (rating * 10 - distance * 0.5 + math.sin(id) * 2) * 100 + 0.5
+        record['score'] = round(score/100, 2)
     
     top_10 = heapq.nlargest(10, cleaned_data_list, key=lambda x: (x['score'], x['rating'], x['distance_from_me'], x['restaurant_name']))
     # top_10 = sorted(cleaned_data_list, key=lambda x: (-x['score'], -x['rating'], -x['distance_from_me'], x['restaurant_name']))[:10]
@@ -123,7 +123,7 @@ def test_validate_topk(url, token):
             print('message: {}'.format(data['message']))  
 def main():
     # Get the API_URL from environment variable
-    API_URL = os.getenv("API_URL")  # Optional default if not set
+    API_URL = os.getenv("API_URL")
     # API_URL = "https://u8whitimu7.execute-api.ap-southeast-1.amazonaws.com/prod"
     
     authorization_token = get_token(API_URL + "/register")
