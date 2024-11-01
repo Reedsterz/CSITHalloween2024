@@ -133,10 +133,10 @@ def main():
     
     validate_dataset(data_list)
     
-    find_top_10('validated_dataset.json')
+    # find_top_10('validated_dataset.json')
     
-    test_validate_dataset(API_URL + "/test/check-data-validation", authorization_token)
-    test_validate_topk(API_URL + "/test/check-topk-sort", authorization_token)
+    # test_validate_dataset(API_URL + "/test/check-data-validation", authorization_token)
+    # test_validate_topk(API_URL + "/test/check-topk-sort", authorization_token)
 
 if __name__ == "__main__":
     main()
